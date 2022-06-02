@@ -1,0 +1,214 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F6F6F6;
+    font-family: '87MMILSANG-Regular';
+    width: 100%;
+    height: 100vh;
+    min-width: 320px;
+    margin: 0 auto;
+    background-color: seashell;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+* {
+   box-sizing: border-box; 
+}
+
+@font-face {
+    font-family: '87MMILSANG-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201@1.0/87MMILSANG-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+header{
+    display: flex;
+    border: 1px solid black;
+    border-radius: 10px 10px 0px 0px;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 20px;
+    margin: 10px;
+    padding: 10px;
+}
+
+main{
+    margin: 10px;
+    display: flex;
+    flex-direction: row nowrap;
+    height: calc(100% - 75px);
+}
+
+main>div{
+    border: 1px solid rebeccapurple;
+    display: flex;
+    flex-flow: column wrap;
+    padding: 10px;
+    font-size: 15px;
+    width: 120px;
+}
+
+.sidebar >button{
+    /* padding:10px; */
+    font-family: '87MMILSANG-Regular';
+    background-color: white;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.847);
+    border-radius: 3px;
+}
+.sidebar > button:hover{
+    background-color: darkcyan;
+    cursor: pointer;
+    outline:none;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.847); 
+    color:white;
+}
+
+.container{
+    display: flex;
+    flex-flow: row wrap;
+    flex:1;
+    align-content: flex-start;
+    margin-left: 10px;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px solid seagreen;
+}
+
+.card{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 200px;
+    height: 150px;
+    border: 10px solid seashell;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: salmon;
+    margin: 10px;
+    font-size: 13px;
+}
+
+.card img{
+  overflow: hidden;
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.card > span{
+    text-align: center;
+    word-break: break-all;
+}
+
+@media screen and (min-width:800px) {
+    .card{background-color: slateblue;}
+}
+@media screen and (min-width:801px) and (max-width:1000px) {
+    .card{background-color: salmon;}
+}
+@media screen and (min-width:1001px) and (max-width:1200px) {
+    .card{background-color: seagreen;}
+}
+
+#modal.modal-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+#modal .modal-window {
+    width: 200px;
+    height: 300px;
+    top: -100px;
+    padding: 10px;
+    background: rgba(247, 255, 103, 0.7);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}x
+
+#modal > div > div.title {
+    padding: 20px;
+}
+
+#modal .title h2 {
+    display: inline;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+}
+#modal .close-area {
+    display: absolute;
+    float: right;
+    padding-right: 10px;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+}
+#modal .content {
+    margin-top: 20px;
+    padding: 0px 10px;
+    color: rgb(0, 0, 0);
+}
+
+form {
+    justify-content: center;
+}
+
+form > li{
+    list-style: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+form > input {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 3px;
+}
+
+form > input:focus {
+    border: 1px solid rgba(175, 19, 232, 0.847);
+    outline:rgba(0, 17, 255, 0.37);
+}
+
+form > button {
+    /* padding:10px; */
+    font-family: '87MMILSANG-Regular';
+    background-color: white;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.847);
+    border-radius: 3px;
+}
+form > button:hover{
+    background-color: darkcyan;
+    cursor: pointer;
+    outline:none;
+    transition: 0.5s;
+    border-radius: 6px;
+    color:white;
+}
