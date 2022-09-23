@@ -4,15 +4,36 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notion API Test</title>
+    <title>WMLAlive Archive</title>
+    <link rel="icon" type="image/x-icon" href="/public/favicon.ico">
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
-    <div id="banner">Notion API Database Test</div>
-    <div id="wrapper">
-      <div id="container" class="bg-red-100"></div>
-    </div>
-
+    <header>순간에 대해 말해주세요 : WMLAlive Archive</header>
+    <main>
+      <!-- left page -->
+      <div class="leftpage">
+        <div>무언가 살아있다고 느낀 순간은 언제인가요?</div>
+        <div class="answerbox_left" id="answerbox_left"></div>
+        <form id="answer-form-left">
+          <input id="content_1" placeholder="당신의 답변을 적어주세요." class="inputleft" required/>
+          <input id="nickname_1" placeholder="닉네임" class="inputleft" required/>
+          <button>send</button>
+        </form>
+      </div>
+      <!-- right page -->
+      <div class="rightpage">
+        <div>무언가 죽어있다고 느낀 순간은 언제인가요?</div>
+        <div class="answerbox_right" id="answerbox_right"></div>
+        <form id="answer-form-right">
+          <input id="content_2" placeholder="당신의 답변을 적어주세요." class="inputright" required />
+          <input id="nickname_2" placeholder="닉네임" class="inputright" required />
+          <button>send</button>
+        </form>
+      </div>
+    </main>
+    <footer>© Suh Youri</footer>
     <script type="module" src="./script.js"></script>
+    <script src="./inputFunc.js"></script>
   </body>
 </html>

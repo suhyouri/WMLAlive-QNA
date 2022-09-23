@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "tailwind:css": "postcss public/styles/tailwind.css -o public/styles/style.css",
-    "start": "npm run tailwind:css && node server"
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +14,9 @@
     "@notionhq/client": "^0.3.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "nodemon": "^2.0.20",
     "postcss-cli": "^10.0.0",
+    "socket.io": "^4.5.2",
     "tailwindcss": "^2.2.9"
   }
 }
