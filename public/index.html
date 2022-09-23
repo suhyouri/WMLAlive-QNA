@@ -15,24 +15,26 @@
       <div class="leftpage">
         <div>무언가 살아있다고 느낀 순간은 언제인가요?</div>
         <div class="answerbox_left" id="answerbox_left"></div>
-        <form>
+        <form id="answer-form-left">
           <input id="content_1" placeholder="당신의 답변을 적어주세요." class="inputleft" required/>
           <input id="nickname_1" placeholder="닉네임" class="inputleft" required/>
-          <button onclick="submitFormToNotion_1">send</button>
+          <button>send</button>
         </form>
       </div>
       <!-- right page -->
       <div class="rightpage">
         <div>무언가 죽어있다고 느낀 순간은 언제인가요?</div>
         <div class="answerbox_right" id="answerbox_right"></div>
-        <form>
+        <form id="answer-form-right">
           <input id="content_2" placeholder="당신의 답변을 적어주세요." class="inputright" required />
           <input id="nickname_2" placeholder="닉네임" class="inputright" required />
-          <button onclick="submitFormToNotion_2">send</button>
+          <button>send</button>
         </form>
       </div>
     </main>
     <footer>© Suh Youri</footer>
     <script type="module" src="./script.js"></script>
+    <script src="./inputLeft.js"></script>
+    <script src="./inputRight.js"></script>
   </body>
 </html>

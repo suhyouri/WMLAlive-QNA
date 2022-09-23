@@ -1,6 +1,8 @@
 //---> left page
+const PORT = 8000;//
+
 const getDataFromBackend_1 = async () => {
-  const rest = await fetch('http://localhost:8000/leftpage');
+  const rest = await fetch(`http://localhost:${PORT}/leftpage`);
   const data = await rest.json();
   console.log(data);
   return data;
@@ -28,7 +30,7 @@ addDataLeft();
 
 //---right page
 const getDataFromBackend_2 = async () => {
-  const rest = await fetch("http://localhost:8000/rightpage");
+  const rest = await fetch(`http://localhost:${PORT}/rightpage`);
   const data = await rest.json();
   console.log(data);
   return data;

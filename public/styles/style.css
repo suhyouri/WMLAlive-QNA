@@ -163,8 +163,6 @@ button:hover{
   cursor: pointer;
 }
 
-
-
 .slide{
   animation: scrollText 15s linear infinite;
 }
@@ -249,7 +247,7 @@ footer{
 }
 
 .rightpage > form > button:hover{
-  color: #6C1CFF;
+  color: #a0a0a0
 }
 
 .container {
