@@ -2,7 +2,7 @@
 const PORT = 8000;//
 
 const getDataFromBackend_1 = async () => {
-  const rest = await fetch(`http://localhost:${PORT}/leftpage`);
+  const rest = await fetch(`https://wmlalive-qna.vercel.app/leftpage`);
   const data = await rest.json();
   console.log(data);
   return data;
@@ -30,7 +30,7 @@ addDataLeft();
 
 //---right page
 const getDataFromBackend_2 = async () => {
-  const rest = await fetch(`http://localhost:${PORT}/rightpage`);
+  const rest = await fetch(`https://wmlalive-qna.vercel.app/rightpage`);
   const data = await rest.json();
   console.log(data);
   return data;
