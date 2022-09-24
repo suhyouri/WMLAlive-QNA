@@ -66,7 +66,7 @@ app.post("/submitFormToNotion_left", jsonParser, async (req, res) => {
         },
       });
     //   console.log(response);
-      console.log("Success!");
+      console.log("Success!_leftInput");
     } catch (err) {
       console.log(err);
     }
@@ -101,7 +101,7 @@ app.post("/submitFormToNotion_right", jsonParser, async (req, res) => {
       },
     });
     //   console.log(response);
-    console.log("Success!");
+    console.log("Success!_rightInput");
   } catch (err) {
     console.log(err);
   }

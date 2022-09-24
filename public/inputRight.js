@@ -4,7 +4,7 @@ const rightNickname = document.getElementById("nickname_2");
 const portNum = 8000;
 let logging_2 = [];
 
-function submitFormToNotion(newAnsobj) {
+function submitFormToNotion_right(newAnsobj) {
 //   console.log("i will make", newAnsobj);
   fetch(`http://localhost:${portNum}/submitFormToNotion_right`, {
     method: "post",
@@ -26,7 +26,7 @@ function submitFormToNotion(newAnsobj) {
     });
 }
 
-function makeContainer(newAns) {
+function makeContainer_right(newAns) {
     // console.log("i will make", newAns);
     const section = document.createElement("section");
     section.classList.add("post");
@@ -41,7 +41,7 @@ function makeContainer(newAns) {
     answerbox_right.appendChild(section);
 }
 
-function handleTodoSubmit1(e) {
+function handleTodoSubmit_right(e) {
     e.preventDefault();
     // console.log("click!");
     // console.log(`rightAnswer: ${rightAnswer.value}, leftnickname: ${rightNickname.value}`);
@@ -56,8 +56,8 @@ function handleTodoSubmit1(e) {
     };
     logging_2.push(newAnsobj);
 //   console.log(logging_2);
-    makeContainer(newAnsobj);
-    submitFormToNotion(newAnsobj);
+    makeContainer_right(newAnsobj);
+    submitFormToNotion_right(newAnsobj);
 }
 
-answerFormRight.addEventListener("submit", handleTodoSubmit1);
+answerFormRight.addEventListener("submit", handleTodoSubmit_right);
