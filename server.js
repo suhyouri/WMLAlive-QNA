@@ -1,10 +1,9 @@
 const express = require('express');
-const { getDatabase_1 } = require('./modules/notion');
-const { getDatabase_2 } = require("./modules/notion");
+const { getDatabase_1 } = require('./notion');
+const { getDatabase_2 } = require("./notion");
 const cors = require("cors");
 // const PORT = 8000;
-// const HOST = "localhost";
-const HOST = "http://wmlalive-qna.vercel.app/"
+const HOST = "localhost";
 const { Client } = require("@notionhq/client");
 let bodyParser = require("body-parser");
 let jsonParser = bodyParser.json();

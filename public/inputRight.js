@@ -6,7 +6,7 @@ let logging_2 = [];
 
 function submitFormToNotion_right(newAnsobj) {
 //   console.log("i will make", newAnsobj);
-  fetch(`https://wmlalive-qna.vercel.app/submitFormToNotion_right`, {
+  fetch(`http://localhost:${portNum}/submitFormToNotion_right`, {
     method: "post",
     headers: {
       Accept: "application/json",
