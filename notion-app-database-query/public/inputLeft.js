@@ -1,17 +1,12 @@
 const answerFormLeft = document.getElementById("answer-form-left");
 const leftAnswer = document.getElementById("content_1");
 const leftNickname = document.getElementById("nickname_1");
-const answerInput = document.querySelector("#todo-form input");
-const todoList = document.getElementById("todo-list");
 const PORT = 8000;
 let logging = [];
 
-const TODOS_KEY = "todos";
-
-
-function submitFormToNotion(newAnsobj) {
+function submitFormToNotion_left(newAnsobj) {
 //   console.log("i will make", newAnsobj);
-  fetch(`http://localhost:${PORT}/submitFormToNotion`, {
+  fetch(`http://localhost:${PORT}/submitFormToNotion_left`, {
     method: "post",
     headers: {
       Accept: "application/json",
@@ -31,7 +26,7 @@ function submitFormToNotion(newAnsobj) {
     });
 }
 
-function makeContainer(newAns) {
+function makeContainer_left(newAns) {
     // console.log("i will make", newAns);
     const section = document.createElement("section");
     section.classList.add("post");
@@ -46,7 +41,7 @@ function makeContainer(newAns) {
     answerbox_left.appendChild(section);
 }
 
-function handleTodoSubmit(e) {
+function handleTodoSubmit_left(e) {
     e.preventDefault();
     // console.log("click!");
     // console.log(`leftAnswer: ${leftAnswer.value}, leftnickname: ${leftNickname.value}`);
@@ -54,16 +49,15 @@ function handleTodoSubmit(e) {
     const nickname_1 = leftNickname.value;
     leftAnswer.value = "";
     leftNickname.value = "";
-  const newAnsobj = {
-    answer: answer_1,
-    nickname: nickname_1,
-    time: Date.now(),
-  };
-  logging.push(newAnsobj);
+    const newAnsobj = {
+        answer: answer_1,
+        nickname: nickname_1,
+        time: Date.now(),
+    };
+    logging.push(newAnsobj);
 //   console.log(logging);
-    makeContainer(newAnsobj);
-    submitFormToNotion(newAnsobj);
-//   saveTodos();
+    makeContainer_left(newAnsobj);
+    submitFormToNotion_left(newAnsobj);
 }
 
-answerFormLeft.addEventListener("submit", handleTodoSubmit);
+answerFormLeft.addEventListener("submit", handleTodoSubmit_left);

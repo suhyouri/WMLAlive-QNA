@@ -1,6 +1,6 @@
 const express = require('express');
-const { getDatabase_1 } = require('./modules/notion');
-const { getDatabase_2 } = require("./modules/notion");
+const { getDatabase_1 } = require('./notion');
+const { getDatabase_2 } = require("./notion");
 const cors = require("cors");
 // const PORT = 8000;
 const HOST = "localhost";
@@ -37,9 +37,7 @@ app.listen(portNum, HOST, () => {
 });
 
 // ---> 2. Create a page
-
-//------> 1. Add Answers to Notion DB --- req
-app.post("/submitFormToNotion", jsonParser, async (req, res) => {
+app.post("/submitFormToNotion_left", jsonParser, async (req, res) => {
     const nickname = req.body.Nickname;
     const content = req.body.Content;
 
@@ -68,14 +66,43 @@ app.post("/submitFormToNotion", jsonParser, async (req, res) => {
         },
       });
     //   console.log(response);
-      console.log("Success!");
+      console.log("Success!_leftInput");
     } catch (err) {
       console.log(err);
     }
 });
 
-//---> 2. Fetch the data ---- res 
-app.get("/movies", async (req, res) => {
-  const movies = await getDatabase();
-  res.json(movies);
+app.post("/submitFormToNotion_right", jsonParser, async (req, res) => {
+  const nickname = req.body.Nickname;
+  const content = req.body.Content;
+
+  try {
+    const response = await notion.pages.create({
+      parent: { database_id: databaseId_2 },
+      properties: {
+        Nickname: {
+          title: [
+            {
+              text: {
+                content: nickname,
+              },
+            },
+          ],
+        },
+        Content: {
+          rich_text: [
+            {
+              text: {
+                content: content,
+              },
+            },
+          ],
+        },
+      },
+    });
+    //   console.log(response);
+    console.log("Success!_rightInput");
+  } catch (err) {
+    console.log(err);
+  }
 });
