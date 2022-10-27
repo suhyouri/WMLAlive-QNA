@@ -1,6 +1,7 @@
 const answerFormLeft = document.getElementById("answer-form-left");
 const leftAnswer = document.getElementById("content_1");
 const leftNickname = document.getElementById("nickname_1");
+// const socket = io();
 const PORT = 8000;
 let logging = [];
 
@@ -26,20 +27,20 @@ function submitFormToNotion_left(newAnsobj) {
     });
 }
 
-function makeContainer_left(newAns) {
-    // console.log("i will make", newAns);
-    const section = document.createElement("section");
-    section.classList.add("post");
-    section.innerHTML = `
-          <div class="answer">
-            <li>${newAns.answer}</li>
-          </div>
-          <footer class="footer">
-            <span class="post__author">${newAns.nickname}</span>
-          </footer>
-    `;
-    answerbox_left.appendChild(section);
-}
+// function makeContainer_left(newAns) {
+//     // console.log("i will make", newAns);
+//     const section = document.createElement("section");
+//     section.classList.add("post");
+//     section.innerHTML = `
+//           <div class="answer">
+//             <li>${newAns.answer}</li>
+//           </div>
+//           <footer class="footer">
+//             <span class="post__author">${newAns.nickname}</span>
+//           </footer>
+//     `;
+//     answerbox_left.appendChild(section);
+// }
 
 function handleTodoSubmit_left(e) {
     e.preventDefault();
@@ -54,10 +55,26 @@ function handleTodoSubmit_left(e) {
         nickname: nickname_1,
         time: Date.now(),
     };
-    logging.push(newAnsobj);
+  logging.push(newAnsobj);
+  socket.emit("chat message", newAnsobj);//socket.io
 //   console.log(logging);
     makeContainer_left(newAnsobj);
     submitFormToNotion_left(newAnsobj);
 }
+
+socket.on('chat message', function (newAns) {
+  // console.log("i will make", newAns);
+  const section = document.createElement("section");
+  section.classList.add("post");
+  section.innerHTML = `
+          <div class="answer">
+            <li>${newAns.answer}</li>
+          </div>
+          <footer class="footer">
+            <span class="post__author">${newAns.nickname}</span>
+          </footer>
+    `;
+  answerbox_left.appendChild(section);
+});
 
 answerFormLeft.addEventListener("submit", handleTodoSubmit_left);

@@ -1,6 +1,7 @@
-//---> left page
-const PORT = 8000;//
+const PORT = 8000; //
+// let socket = io.connect();
 
+//---> left page
 const getDataFromBackend_1 = async () => {
   const rest = await fetch(`http://localhost:${PORT}/leftpage`);
   const data = await rest.json();

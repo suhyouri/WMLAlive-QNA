@@ -18,6 +18,7 @@ header{
   justify-content: center;
   align-items: center;
   list-style: none;
+  text-align: center;
 }
 
 main{
@@ -61,7 +62,7 @@ main{
 }
 
 .rightpage {
-  background-color: #6C1CFF;
+  background-color: #b2b2b2;
   color: white;
   font-size: 24px;
   display:grid;
@@ -171,9 +172,6 @@ button:hover{
   transform: rotateX(180deg);
 }
 
-.rightpage{
-  background-color: #dcdcdc;
-}
 
 
 li {

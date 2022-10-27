@@ -1,4 +1,3 @@
-const express = require('express');
 const { getDatabase_1 } = require('./notion');
 const { getDatabase_2 } = require("./notion");
 const cors = require("cors");
@@ -8,16 +7,25 @@ const { Client } = require("@notionhq/client");
 let bodyParser = require("body-parser");
 let jsonParser = bodyParser.json();
 require("dotenv").config();
+//socket.io
+const express = require("express");
+const app = express();
+const http = require("http");
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server, {
+  cors: {
+    origin: ["https://admin.socket.io"],
+    credentials: true,
+  },
+});
 
-
+//database 
 const databaseId = process.env.NOTION_API_DATABASE;
 const databaseId_2 = process.env.NOTION_API_DATABASE_2;
 const portNum = process.env.PORT;
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
-
-const app = express();
 app.use(cors());
-const io = require("socket.io")();
 
 app.use(express.static('public'));
 
@@ -32,7 +40,23 @@ app.get("/rightpage", async (req, res) => {
   res.json(rightanswers);
 });
 
-app.listen(portNum, HOST, () => {
+io.on("connection", (socket) => {
+  console.log("a user connected");
+  socket.on("chat message", (msg) => {
+    io.emit("chat message", msg);
+    console.log("message: " + msg);
+  });
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
+  });
+});
+
+// app.listen(portNum, HOST, () => {
+//   console.log("Starting proxy at " + HOST + ":" + portNum);
+// });
+
+//socket ver
+server.listen(portNum, HOST, () => {
   console.log("Starting proxy at " + HOST + ":" + portNum);
 });
 
@@ -106,3 +130,4 @@ app.post("/submitFormToNotion_right", jsonParser, async (req, res) => {
     console.log(err);
   }
 });
+
